@@ -8,18 +8,20 @@ model = joblib.load('drug_model.pkl')
 @app.route('/', methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
-        age=request.form['age'],
-        sex=request.form['Sex'],
-        bp=request.form['bp'],
-        cholestrol= request.form['cholestrol'],
-        na_to_k=request.form['na_to_k' ]
+        age = int(request.form['age'])
+        sex = int(request.form['sex'])
+        bp = int(request.form['bp'])
+        cholesterol = int(request.form['cholesterol'])
+        na_to_k = float(request.form['na_to_k'])
 
-        prediction=model.predict([[age,sex,bp,cholestrol,na_to_k]])
-        drug_mapping={0:'DrugA' ,1:'DrugB' ,2:'DrugC' ,3:'DrugX' ,4:'DrugY'}
-        result=drug_mapping[prediction]
-        return render_template('index.html' ,result)
-        return render_template('index.html')
+        prediction = model.predict([[age, sex, bp, cholesterol, na_to_k]])[0]
+        drug_mapping = {0:'DrugA', 1:'DrugB', 2:'DrugC', 3:'DrugX', 4:'DrugY'}
+        result = drug_mapping[prediction]
+        
+        return render_template('index.html', result=result)
+    
+    return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0', port=5000)
     
