@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drug Recommender</title>
+</head>
+<body>
+    <h1>Drug Recommendation System</h1>
+    
+    <form method="POST">
+        <label>Age:</label>
+        <input type="number" name="age">
+        <select name="sex">
+    <option value="1">Female</option>
+    <option value="0">Male</option>
+</select>
+<select name="bp">
+    <option value="2">HIGH</option>
+    <option value="1">NORMAL</option>
+    <option value="0">LOW</option>
+
+</select>
+<select name="cholestrol">
+    <option value="1">HIGH</option>
+    <option value="0">LOW</option>
+</select>
+<label>Na_to_K value:</label>
+<input type="number" name="na_to_k">
+        <!-- 5 input fields here -->
+        
+        <button type="submit">Predict Drug</button>
+    </form>
+    
+    {% if result %}
+        <h2>Recommended Drug: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>
