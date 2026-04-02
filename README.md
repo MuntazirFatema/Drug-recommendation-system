@@ -121,5 +121,5 @@ This application is built for **educational purposes only**. Always consult a li
 
 ## 👩‍💻 Author
 
-**Fatema** — Electronics and Communication Engineering Student
+**Muntazir Fatema** — Electronics and Communication Engineering Student
 Gujarat Technological University | Aspiring ML Engineer
